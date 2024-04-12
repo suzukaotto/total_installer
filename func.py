@@ -58,15 +58,15 @@ def install_requirements() -> int:
 
 def git_pull():
     try:
-        remote_name = "remotedynetclient" + get_now_ftime()
+        remote_name = "remotetotalinstaller" + get_now_ftime()
         remote_name = base64.b64encode(remote_name.encode('utf-8'))
-        remote_url  = "https://github.com/suzukaotto/myTotalInstaller.git"
+        remote_url  = "https://github.com/suzukaotto/total_installer.git"
         try:
             subprocess.check_call(["git", "remote", "remove", remote_name])
         except:
             pass
         subprocess.check_call(["git", "remote", "add", remote_name, remote_url])
-        subprocess.check_call(["git", "pull", remote_name, "main"])
+        subprocess.check_call(["git", "pull", remote_name, "master"])
         subprocess.check_call(["git", "remote", "remove", remote_name])
 
         return 0
